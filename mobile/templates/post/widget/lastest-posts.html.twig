@@ -1,0 +1,12 @@
+{% for item in lastestPosts %}
+    <li>
+        <a href="{{ item.url }}" class="img-sp">
+            <img src="{{ item.avatar }}" alt="{{ item.title }}">
+        </a>
+        <div class="info-car">
+            <h3><a href="{{ item.url }}" class="name-pro" title="{{ item.title }}">{{ item.title }}</a></h3>
+            <a href="{{ item.author_url }}" class="ic-user"><i class="icon-user"></i> {{ item.author_name }}</a>
+            <span class="mg-9-10">|</span><span class="date-creat"> <i class="icon-clock"></i> {{ item.s_publish_time }}</span>
+        </div>
+    </li>
+{% endfor %}

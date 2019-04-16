@@ -1,0 +1,127 @@
+.banner .lSPager {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+#swiper-wrapper{
+    min-width: 600px !important;
+}
+li.lslide{
+    position: relative;
+}
+.lSSlideOuter .lSPager.lSpg > li a {
+    height: 5px;
+    width: 5px;
+    border: 1px solid #7f7f81;
+    background-color: transparent;
+}
+
+.lSSlideOuter .lSPager.lSpg > li:hover a, .lSSlideOuter .lSPager.lSpg > li.active a {
+    background-color: #ef233c;
+    width: 7px;
+    height: 7px;
+}
+
+.banner li.lslide::before {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 55%);
+    background-image: -o-linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 55%);
+    background-image: -moz-linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 55%);
+    background-image: -webkit-linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 55%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    content: "";
+}
+
+.banner li.lslide .top-news-title {
+    z-index: 4;
+}
+
+.cars-review-item {
+    position: relative;
+}
+
+.cars-review-item .item {
+    width: 130px;
+    background: #f0f0f0;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+.cars-review-item .info-car {
+    margin-top: 9px;
+}
+
+.cars-review-item li h3 {
+    margin-top: 0px;
+    padding-left: 5px;
+    width: 100%;
+    height: 54px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
+
+.cars-review-item li .ic-user {
+    margin-bottom: 4px;
+    color: #ef233c;
+    font-size: 10px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 5px;
+    width: 100%;
+}
+
+.cars-review-item li span {
+    color: #999999;
+    font-size: 10px;
+    overflow: hidden;
+    width: 75px;
+    display: block;
+    white-space: nowrap;
+}
+
+.cars-review-item li .name-pro {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 14px;
+    color: #191919;
+    line-height: 18px;
+}
+
+.cars-review-item .lSPager {
+    position: relative;
+    line-height: 10px;
+}
+
+.cars-review-item .lSSlideWrapper {
+    margin-bottom: 15px;
+}
+
+.list-new2 .ic-user {
+    margin-bottom: 4px;
+    color: #ef233c;
+    font-size: 10px;
+    float: left;
+}
+
+.lSSlideOuter .lSPager.lSpg > li {
+    line-height: 10px;
+}
+.cS-hidden {
+    height: 1px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    overflow: hidden;
+}

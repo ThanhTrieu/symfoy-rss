@@ -1,0 +1,15 @@
+{% if list != null %}
+    {% for key, item in list %}
+        <li class="">
+            <a href="{{ item['link'] }}" class="img-sp iframetrack" rel="{{ item['url'] }}" data-url="{{ item['link'] }}">
+                <img src="{{ item['avatar_mobile'] }}" alt="{{ item['firstAvatarMobile'] }}">
+                <div class="icon-play"></div>
+            </a>
+            <div class="info-car">
+                <h3 class="iframetrackTitle"><a href="{{ item['link'] }}" class="name-pro">{{ item['title'] | raw }}</a></h3>
+                <span class="date-creat"> <i class="icon-clock"></i>{{ item['created_date'] }}</span>
+                <p style="display: none;" class="sapoVideos">{{ item['description'] | raw }}</p>
+            </div>
+        </li>
+    {% endfor %}
+{% endif %}

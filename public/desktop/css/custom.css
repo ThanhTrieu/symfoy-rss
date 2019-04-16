@@ -1,0 +1,114 @@
+div.like ul li {
+    display: inline-block;
+}
+
+div.lg-sub-html a {
+    color: whitesmoke;
+}
+
+div.main-new-content > ol li {
+    list-style: inherit !important;
+}
+
+div.main-new-content > ul li {
+    list-style: initial !important;
+}
+
+/*Facebook comment*/
+.fb-comments,
+.fb-comments span,
+.fb-comments span iframe[style] {
+    min-width: 100% !important;
+    width: 100% !important;
+}
+
+/*Video*/
+.sapo-video {
+    width: 359px;
+    float: left;
+    margin-left: 30px;
+    margin-top: -18px;
+}
+
+.mainPlayVideo {
+    float: left !important;
+    width: 751px !important;
+    height: 422px !important;
+}
+
+/* Video in post detail */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin: 10px 0px !important;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.main-new-content a {
+    color: #2070d2 !important;
+}
+
+.main-new-content figcaption {
+    padding: 0px 20px 20px !important;
+    text-align: center !important;
+    margin-top: -15px !important;
+}
+
+.main-new-content table {
+    border: 1px solid black !important;
+}
+
+.main-new-content table tr td {
+    border: 1px solid black !important;
+}
+
+/* Default CSS Values */
+.main-new-content blockquote {
+    display: block !important;
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+}
+
+.main-new-content h2 {
+    margin-bottom: 10px;
+}
+
+.main-new-content ul {
+    padding-left: 30px;
+}
+.main-new-content ul li {
+    line-height: 24px;
+}
+
+.list-video .images-first-video{
+    max-height: 345px;
+    width: 100%;
+    overflow: hidden;
+}
+.list-video .images-first-video img {
+    width: 100% !important;
+    height: 100% !important;
+}
+.date-creat {
+    font-size: 13px;
+}
+.video .title-30 {
+    margin-bottom: 20px;
+}
+.list-video li .img-sp, .list-news-2 li .img-sp{
+    position: relative;
+    float: left;
+}

@@ -1,0 +1,171 @@
+<!-- nav-->
+<div class="nav">
+    <div class="container" style="position: relative">
+        <div class="bg-logo">
+            {% if app.request.get('_route') == 'index' %}
+            <h1><a href="{{ path('index') }}" class="logo" title="{{ home_title }}"><img src="/images/logo.png" alt="{{ home_title }}"></a></h1>
+            {% else %}
+            <a href="{{ path('index') }}" class="logo" title="{{ home_title }}"><img src="/images/logo.png" alt="{{ home_title }}"></a>
+            {% endif %}
+        </div>
+        <nav>
+            <ul id="menu-bar" class="left-nav">
+                {% if parentSlug is defined and parentSlug == 'home' %}
+                    <li class="active"><a class="top-menu-item" href="{{ path('index') }}" title="HOME">HOME</a></li>
+                {% else %}
+                    <li><a class="top-menu-item" href="{{ path('index') }}" title="HOME">HOME</a></li>
+                {% endif %}
+                <li class="menu-full{{ (parentSlug is defined and parentSlug == 'car-news') ? ' active' : '' }}" rel="menu-car">
+                    <a class="top-menu-item" href="/car-news" title="CAR NEWS">CAR NEWS</a>
+                    <div id="menu-car" class="drop-menu">
+                        <ul>
+                            <li><a href="/car-news/alfa-romeo" title="Alfa Romeo">Alfa Romeo</a></li>
+                            <li><a href="/car-news/audi" title="Audi">Audi</a></li>
+                            <li><a href="/car-news/bentley" title="Bentley">Bentley</a></li>
+                            <li><a href="/car-news/bmw" title="BMW">BMW</a></li>
+                            <li><a href="/car-news/bugatti" title="Bugatti">Bugatti</a></li>
+                            <li><a href="/car-news/general-motors/chevrolet" title="Chevrolet">Chevrolet</a></li>
+                            <li><a href="/car-news/citroen" title="Citroen">Citroen</a></li>
+                            <li><a href="/car-news/dacia" title="Dacia">Dacia</a></li>
+                            <li><a href="/car-news/daihatsu" title="Daihatsu">Daihatsu</a></li>
+                            <li><a href="/car-news/datsun" title="Datsun">Datsun</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/car-news/dc-design" title="DC Design">DC Design</a></li>
+                            <li><a href="/car-news/ferrari" title="Ferrari">Ferrari</a></li>
+                            <li><a href="/car-news/fiat" title="Fiat">Fiat</a></li>
+                            <li><a href="/car-news/ford" title="Ford">Ford</a></li>
+                            <li><a href="/car-news/honda" title="Honda">Honda</a></li>
+                            <li><a href="/car-news/hyundai" title="Hyundai">Hyundai</a></li>
+                            <li><a href="/car-news/infiniti" title="Infiniti">Infiniti</a></li>
+                            <li><a href="/car-news/isuzu" title="Isuzu">Isuzu</a></li>
+                            <li><a href="/car-news/jaguar" title="Jaguar">Jaguar</a></li>
+                            <li><a href="/car-news/jeep" title="Jeep">Jeep</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/car-news/kia" title="Kia">Kia</a></li>
+                            <li><a href="/car-news/lada" title="Lada">Lada</a></li>
+                            <li><a href="/car-news/lamborghini" title="Lamborghini">Lamborghini</a></li>
+                            <li><a href="/car-news/land-rover" title="Land Rover">Land Rover</a></li>
+                            <li><a href="/car-news/lexus" title="Lexus">Lexus</a></li>
+                            <li><a href="/car-news/mahindra" title="Mahindra">Mahindra</a></li>
+                            <li><a href="/car-news/maruti-suzuki" title="Maruti Suzuki">Maruti Suzuki</a></li>
+                            <li><a href="/car-news/maserati" title="Maserati">Maserati</a></li>
+                            <li><a href="/car-news/mazda" title="Mazda">Mazda</a></li>
+                            <li><a href="/car-news/mclaren" title="McLaren">McLaren</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/car-news/mercedes-benz">Mercedes-Benz</a></li>
+                            <li><a href="/car-news/mini" title="Mini">Mini</a></li>
+                            <li><a href="/car-news/mitsubishi" title="Mitsubishi">Mitsubishi</a></li>
+                            <li><a href="/car-news/nissan" title="Nissan">Nissan</a></li>
+                            <li><a href="/car-news/opel" title="Opel">Opel</a></li>
+                            <li><a href="/car-news/perodua" title="Perodua">Perodua</a></li>
+                            <li><a href="/car-news/peugeot" title="Peugeot">Peugeot</a></li>
+                            <li><a href="/car-news/porsche" title="Porsche">Porsche</a></li>
+                            <li><a href="/car-news/proton" title="Proton">Proton</a></li>
+                            <li><a href="/car-news/renault" title="Renault">Renault</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/car-news/rolls-royce" title="Rolls Royce">Rolls Royce</a></li>
+                            <li><a href="/car-news/skoda" title="Skoda">Skoda</a></li>
+                            <li><a href="/car-news/ssangyong" title="Ssangyong">Ssangyong</a></li>
+                            <li><a href="/car-news/suzuki" title="Suzuki">Suzuki</a></li>
+                            <li><a href="/car-news/tata" title="Tata">Tata</a></li>
+                            <li><a href="/car-news/tesla" title="Tesla">Tesla</a></li>
+                            <li><a href="/car-news/toyota" title="Toyota">Toyota</a></li>
+                            <li><a href="/car-news/volkswagen" title="Volkswagen">Volkswagen</a></li>
+                            <li><a href="/car-news/volvo" title="Volvo">Volvo</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-full{{ (parentSlug is defined and parentSlug == 'motorcycles') ? ' active' : '' }}" rel="menu-bike">
+                    <a class="top-menu-item" href="/motorcycles" title="BIKE NEWS">BIKE NEWS</a>
+                    <div id="menu-bike" class="drop-menu">
+                        <ul>
+                            <li><a href="/motorcycles/aprilia" title="Aprilia">Aprilia</a></li>
+                            <li><a href="/motorcycles/bmw-motorrad" title="BMW">BMW</a></li>
+                            <li><a href="/motorcycles/bajaj" title="Bajaj">Bajaj</a></li>
+                            <li><a href="/motorcycles/benelli" title="Benelli">Benelli</a></li>
+                            <li><a href="/motorcycles/bimota" title="Bimota">Bimota</a></li>
+                            <li><a href="/motorcycles/dsk-benelli">DSK-Benelli</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/motorcycles/dsk-hyosung">DSK-Hyosung</a></li>
+                            <li><a href="/motorcycles/ducati" title="Ducati">Ducati</a></li>
+                            <li><a href="/motorcycles/ktm/husqvarna" title="Husqvarna">Husqvarna</a></li>
+                            <li><a href="/motorcycles/harley-davidson" title="Harley">Harley</a></li>
+                            <li><a href="/motorcycles/hero-motocorp" title="Hero">Hero</a></li>
+                            <li><a href="/motorcycles/honda-motorcycles" title="Honda">Honda</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/motorcycles/indian-2" title="Indian">Indian</a></li>
+                            <li><a href="/motorcycles/ktm" title="KTM">KTM</a></li>
+                            <li><a href="/motorcycles/bajaj/kawasaki" title="Kawasaki">Kawasaki</a></li>
+                            <li><a href="/motorcycles/kymco" title="KYMCO">KYMCO</a></li>
+                            <li><a href="/motorcycles/mahindra-2wheelers" title="Mahindra">Mahindra</a></li>
+                            <li><a href="/motorcycles/moto-guzzi" title="Moto Guzzi">Moto Guzzi</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/motorcycles/moto-morini" title="Moto Morini">Moto Morini</a></li>
+                            <li><a href="/motorcycles/mv-agusta" title="MV Agusta">MV Agusta</a></li>
+                            <li><a href="/motorcycles/piaggio" title="Piaggio">Piaggio</a></li>
+                            <li><a href="/motorcycles/royal-enfield" title="Royal Enfield">Royal Enfield</a></li>
+                            <li><a href="/motorcycles/suzuki-motorcycles-2" title="Suzuki">Suzuki</a></li>
+                            <li><a href="/motorcycles/sym" title="SYM">SYM</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/motorcycles/triumph-2" title="Triumph">Triumph</a></li>
+                            <li><a href="/motorcycles/tvs" title="TVS">TVS</a></li>
+                            <li><a href="/motorcycles/um-global-motorcycles" title="UM Global">UM Global</a></li>
+                            <li><a href="/motorcycles/vardenchi" title="Vardenchi">Vardenchi</a></li>
+                            <li><a href="/motorcycles/piaggio/vespa" title="Vespa">Vespa</a></li>
+                            <li><a href="/motorcycles/yamaha" title="Yamaha">Yamaha</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-box{{ (parentSlug is defined and (parentSlug == 'car-reviews' or parentSlug == 'bike-reviews')) ? ' active' : '' }}" rel="menu-reviews">
+                    <a class="top-menu-item" href="/car-reviews" title="REVIEWS">REVIEWS</a>
+                    <div id="menu-reviews" class="drop-menu">
+                        <ul>
+                            <li><a href="/car-reviews" title="Car Reviews">Car Reviews</a></li>
+                            <li><a href="/bike-reviews" title="Bike Reviews">Bike Reviews</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li{{ (parentSlug is defined and parentSlug == 'featured') ? ' class="active"' : '' }}><a class="top-menu-item" href="/featured" title="FEATURED">FEATURED</a></li>
+                <li class="menu-box last{{ (parentSlug is defined and parentSlug == 'galleries') ? ' active' : '' }}" rel="menu-galleries">
+                    <a class="top-menu-item" href="/photo" title="GALLERIES">GALLERIES</a>
+                    <div id="menu-galleries" class="drop-menu">
+                        <ul>
+                            <li><a href="/photo" title="Photos">Photos</a></li>
+                            <li><a href="/video" title="Videos">Videos</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            {# ThanhDT hardcode hide#}
+            {#<div class="right-nav">
+                <span class="index99">EN<i class="icon-down-open-big"></i></span>
+            </div>#}
+        </nav><!--end nav-->
+    </div><!--end container-->
+</div><!--end nav-->
+
+<div class="top-search">
+    <div class="container">
+        {{ render_esi(controller('App\\Controller\\Post\\WidgetController::trending')) }}
+        {#<ul class="menu-search">
+            <li><div class="f-rb white-clr">TRENDING:</div></li>
+            <li><a href="">Suzuki Swift Sport</a></li>
+            <li><a href="">Tata Harrier</a></li>
+            <li><a href="">Mahindra Marazzo 2018</a></li>
+            <li><a href="">Hyundai Santro</a></li>
+            <li class="last"><a href="">Honda City 2018 Indian</a></li>
+        </ul>#}
+        <div class="control custom-input">
+            <input class="form-control" id="keywordSearch">
+            <i class="icon-search" id="btnSearch"></i>
+        </div>
+    </div><!--end container-->
+</div><!--end top-search-->

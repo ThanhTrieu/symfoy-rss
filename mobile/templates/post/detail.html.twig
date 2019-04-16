@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div id="wrapper">
+        <section class="detail-new">
+            <div class="main">
+                <h1 class="title-18-blue">{{ data['title']|raw }}</h1>
+                <div class="date">
+                    <span class="date-creat"> <i class="icon-clock"></i> {{ data['s_publish_time'] }}</span>
+
+                    <span class="Reviews"><i class="icon-folder-open"></i>  {{ data['tag_cat']|raw }}</span>
+                    <span class="ic-user"><i class="icon-user"></i><a href="{{ urlAuthor }}" title="{{ author.displayName|raw }}">{{ author.displayName|raw }}</a></span>
+                </div>
+                <div class="detail-news">
+
+                    <div class="fb-detail">
+                        <ul class="menu-fb">
+                            <li><a rel="nofollow" data-link="https://www.facebook.com/sharer/sharer.php?u={{ urlShareLink }}" target="popupwindow" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{ urlShareLink }}', 'popupwindow', 'scrollbars=yes,width=600,height=580');return true"><img src="/images/1.png" alt=""></a></li>
+                            <li><a rel="nofollow" data-link="https://twitter.com/intent/tweet?url={{ urlShareLink }}" target="popupwindow" onclick="window.open('https://twitter.com/intent/tweet?text={{ urlShareLink }}', 'popupwindow', 'scrollbars=yes,width=600,height=580');return true"><img src="/images/2.png" alt=""></a></li>
+                            <li><a rel="nofollow" data-link="https://plus.google.com/share?url={{ urlShareLink }}" target="popupwindow" onclick="window.open('https://plus.google.com/share?url={{ urlShareLink }}', 'popupwindow', 'scrollbars=yes,width=600,height=580');return true"><img src="/images/3.png" alt=""></a></li>
+                            <li><a rel="nofollow" data-link="https://www.linkedin.com/cws/share?url={{ urlShareLink }}" target="popupwindow" onclick="window.open('https://www.linkedin.com/cws/share?url={{ urlShareLink }}', 'popupwindow', 'scrollbars=yes,width=600,height=580');return true"><img src="/images/4.png" alt=""></a></li>
+                            <li><a rel="nofollow" data-link="https://api.whatsapp.com/send?text={{ urlShareLink }}" target="popupwindow" onclick="window.open('https://api.whatsapp.com/send?text={{ urlShareLink }}', 'popupwindow', 'scrollbars=yes,width=600,height=580');return true"><img src="/images/5.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="new-detail">
+                        <div class="main-new-content">
+                            {{ data.content | raw }}
+                        </div>
+                        <div class="clear"></div>
+                        {% if listDataPhotos != null %}
+                            <h2 class="f-rb">{{ titleGallery }}</h2>
+                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                {% for key, imgs in listDataPhotos %}
+                                    <li data-sub-html="{{ imgs.title }}" data-thumb="{{ imgs.url }}" data-src="{{ imgs.url_large_mobile }}">
+                                        <a class="thumbnail">
+                                            <img src="{{ imgs.url }}" class="imgGallery" />
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <div class="clear"></div>
+                        <div class="like" style="margin-top: 0px; margin-bottom: 0px;">
+                            <ul>
+                                <li>
+                                    <div style="position: relative;top: 13px">
+                                        <div class="fb-like" data-href="{{ urlShareLink }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+                                    </div>
+                                </li>
+                                {#<li>#}
+                                    {#<p style="float: right; margin-left: 5px; position: relative;top: 15px;" id="countGoogle"></p>#}
+                                    {#<div style="float: left" class="g-plusone" data-size="tall" data-annotation="inline" data-width="500" data-height="500">#}
+                                    {#</div>#}
+                                {#</li>#}
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="fb-comments" data-href="{{ urlShareLink }}" data-numposts="3" data-width="100%"></div>
+                    </div>
+                </div><!--end detail-news-->
+            </div>
+        </section><!--end section populer-->
+
+        {% include 'post/widget/related-in-tag.html.twig' with {'nameTag': nameTag, 'dataRelated': dataRelatedTag} only %}
+        {% include 'post/widget/related-in-cate.html.twig' with {'nameCate': nameCate, 'dataRelated': dataRelatedCate} only %}
+
+        {% if lastestPosts|length > 0  %}
+            <section class="list-new2 pd-top-30">
+                <div class="main">
+                    <h2 class="title-18">Latest</h2>
+                    <ul class="list-news-50 list-news-2 lp14">
+                        {% for key, item in lastestPosts %}
+                            <li>
+                                <h3><a href="{{ item.url }}" class="name-pro" title="{{ item.title }}">{{ item.title }}</a></h3>
+                                <div class="span-date">
+                                    {% if item.author_name != null %}
+                                        <a href="{{ item.author_url }}"><span class="date-creat"> <i class="icon-user"></i> {{ item.author_name }}</span></a>
+                                    {% endif %}
+                                    <span class="date-creat"> <i class="icon-clock"></i> {{ item.s_publish_time }}</span>
+                                </div>
+                                <a title="{{ item.title }}" href="{{ item.url }}" class="img-sp">
+                                    <img src="{{ item.avatar }}" alt="{{ item.title }}">
+                                </a>
+                                <div class="info-car">
+                                    <p>{{ item.sapo }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        {% endif %}
+        {% if mostViewPosts|length > 0  %}
+            <section class="list-new2 pd-top-30">
+                <div class="main">
+                    <h2 class="title-18">Most Viewed</h2>
+                    <ul class="list-news-50 list-news-2 lp14">
+                        {% for key, item in mostViewPosts %}
+                            <li>
+                                <h3><a href="{{ item.url }}" class="name-pro" title="{{ item.title }}">{{ item.title }}</a></h3>
+                                <div class="span-date">
+                                    {% if item.author_name != null %}
+                                        <a href="{{ item.author_url }}"><span class="date-creat"> <i class="icon-user"></i> {{ item.author_name }}</span></a>
+                                    {% endif %}
+                                    <span class="date-creat"> <i class="icon-clock"></i> {{ item.s_publish_time }}</span>
+                                </div>
+                                <a title="{{ item.title }}" href="{{ item.url }}" class="img-sp">
+                                    <img src="{{ item.avatar }}" alt="{{ item.title }}">
+                                </a>
+                                <div class="info-car">
+                                    <p>{{ item.sapo }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        {% endif %}
+        {% if(parentSlug != 'featured') %}
+            {% include 'post/widget/featured-stories.html.twig' with {'articleExchange': dataRelatedFeatured} only %}
+        {% endif %}
+        <section>
+            <div class="qc main">
+                <a href="{{ detailUrlContribute }}" title="Submit Spy Shots and Get Bragging Rights">
+                    <img src="/images/qc_v2.jpg" alt="Submit Spy Shots and Get Bragging Rights">
+                </a>
+            </div>
+        </section>
+        <input type="hidden" name="postId" value="{{ postId }}" id="dataPostId">
+        <input type="hidden" name="urlShareLink" value="{{ urlShareLink }}" id="dataUrlShareLink">
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId={{ facebook_app_id }}";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script >
+        window.___gcfg = {
+            lang: 'zh-CN',
+            parsetags: 'onload'
+        };
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+{% endblock %}
+
+

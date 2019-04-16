@@ -1,0 +1,26 @@
+{% if articleExchange|length > 0  %}
+    <section class="list-new2 pd-top-30">
+        <div class="main">
+            <h2 class="title-18">Featured Stories</h2>
+            <ul class="list-news-50 list-news-2 lp14">
+                {% for key, item in articleExchange %}
+                    <li>
+                        <h3><a href="{{ item.url }}" class="name-pro" title="{{ item.title }}">{{ item.title }}</a></h3>
+                        <div class="span-date">
+                            {% if item.author_name != null %}
+                                <a href="{{ item.author_url }}"><span class="date-creat"> <i class="icon-user"></i> {{ item.author_name }}</span></a>
+                            {% endif %}
+                            <span class="date-creat"> <i class="icon-clock"></i> {{ item.s_publish_time }}</span>
+                        </div>
+                        <a title="{{ item.title }}" href="{{ item.url }}" class="img-sp">
+                            <img src="{{ item.avatar }}" alt="{{ item.title }}">
+                        </a>
+                        <div class="info-car">
+                            <p>{{ item.sapo }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endif %}

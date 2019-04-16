@@ -1,0 +1,15 @@
+{% if list is defined %}
+    {% for key, item in list %}
+        <li id="item-{{ item.id }}" data-id="{{ item.id }}" data-link="{{ item.link }}" data-url="{{ item.url_post }}"
+            class="{{ item.count_images != 0? 'bt-popup':'' }} {{ key==0? 'first-child':'' }}">
+            <a rel="nofollow" class="img-sp" title="{{ item.title }}">
+                <img src="{{ item.url }}" alt="{{ item.title }}">
+                <div class="int"><i class="icon-file-image"></i> {{ item.count_images }}</div>
+            </a>
+            <div class="info-car">
+                <h3><a rel="nofollow" class="name-pro">{{ item.title }}</a></h3>
+                <span class="date-creat"> <i class="icon-clock"></i> {{ item.created_date }}</span>
+            </div>
+        </li>
+    {% endfor %}
+{% endif %}

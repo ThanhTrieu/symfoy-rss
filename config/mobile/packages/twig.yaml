@@ -1,0 +1,9 @@
+twig:
+    default_path: '%kernel.project_dir%/mobile/templates'
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+            site_name: '%site_name%'
+            home_title: '%home_title%'
+            site_desc: '%site_desc%'
+    #exception_controller: Mobile\Controller\DefaultController::showException

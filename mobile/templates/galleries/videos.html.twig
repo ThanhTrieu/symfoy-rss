@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div id="wrapper" class="bg-white">
+        <div class="f-video">
+            <h2 class="title-18 full-width main pd-bottom-28">Videos</h2>
+            {% if firstVideo != null %}
+                <div id="mainPlayVideo"></div>
+                <div class="info-car main" style="margin-top: 10px;">
+                    <h1 style="width: 100%"><a rel="nofollow" href="" class="name-pro" id="firstTitle">{{ firstVideo['title'] }}</a></h1>
+                    <div class="short-info" id="firstSapo">
+                        {{ firstVideo['description'] | raw }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="clear"></div>
+        {% if list != null %}
+            <ul class="list-news-2 display-ib videos main" id="videos-main">
+                {% for key, item in list %}
+                    <li class="">
+                        <a class="img-sp iframetrack" rel="{{ item['url'] }}" data-url="{{ item['link'] }}">
+                            <img src="{{ item['avatar_mobile'] }}" alt="{{ item['firstAvatarMobile'] }}">
+                            <div class="icon-play"></div>
+                        </a>
+                        <div class="info-car">
+                            <h3 class="iframetrackTitle"><a class="name-pro">{{ item['title'] | raw }}</a></h3>
+                            <span class="date-creat"> <i class="icon-clock"></i>{{ item['created_date'] }}</span>
+                            <p style="display: none;" class="sapoVideos">{{ item['description'] | raw }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if firstVideo != null %}
+            <input type="hidden" value="{{ firstVideo['url'] }}" id="hddUrlVideos" />
+            <input type="hidden" value="{{ firstVideo['firstAvatar'] }}" id="avatarUrlVideos"/>
+            <input type="hidden" value="{{ url_ajax }}" id="urlAjaxLoadMore">
+        {% endif %}
+        <div class="clear"></div>
+        {% if lastestVideos %}
+        <div class="text-center btn-video">
+            <button class="btn btn-all" id="loadPaing" rel="{{ currentPage + 1 }}">Load more</button>
+            <img style="display: none;margin-bottom: 20px;" id="imgMoreLoading" src="/images/loading.gif" title="Please wait while loading data" />
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

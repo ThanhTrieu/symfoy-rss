@@ -1,0 +1,41 @@
+# main route
+# TrieuNT add rss_sitemap
+
+index:
+    path: /
+    controller: Mobile\Controller\DefaultController::index
+home_amp:
+    path: /amp
+    defaults: {_controller: Mobile\Controller\AmpController:homeAmp}
+page404:
+    path: "/404"
+    defaults: {_controller: Mobile\Controller\DefaultController:_404page}
+search:
+    path: /search
+    defaults: {_controller: Mobile\Controller\SearchController::index}
+search_ajax:
+    path: /search_ajax
+    defaults: {_controller: Mobile\Controller\SearchController::searchAjax}
+about:
+    path: /about
+    defaults: {_controller: Mobile\Controller\DefaultController::about}
+privacy_policy:
+    path: /privacy-policy
+    defaults: {_controller: Mobile\Controller\DefaultController::privacyPolicy}
+contact:
+    path: /contact
+    defaults: {_controller: Mobile\Controller\DefaultController::contact}
+contact_sendmail:
+    path: /sendmail
+    defaults: {_controller: App\Controller\DefaultController::contactSendmail}
+galleries:
+    resource: "routes/galleries.yml"
+news_all:
+    resource: "routes/post.yml"
+check_search_post:
+    path: /search/{keyword}
+    defaults: {_controller: Mobile\Controller\SearchController::changToSearch}
+    requirements:
+        keyword: "[A-Za-z0-9\\-_‘’%+//?*.]+"
+    options:
+        utf8: "true"

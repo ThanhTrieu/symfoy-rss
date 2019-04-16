@@ -1,0 +1,23 @@
+{% if( optionData is not null ) %}
+    <div class="menu-search">
+        <span style="float: left"><i class="icon-flash"></i></span>
+        <div class="swiper-container" style="position: relative;width:100%;">
+            <ul id="swiper-wrapper" class="cS-hidden">
+                {% for key, item in optionData.items %}
+                    <li{% if loop.index == loop.length-1 %} class="swiper-slide last"{% endif %}>
+                        <a href="{{ item.link_url }}" title="{{ item.title }}">{{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+{#
+<ul class="menu-search">
+    <li><i class="icon-flash"></i></li>
+    <li><a href="">Suzuki Swift Sport</a></li>
+    <li><a href="">Tata Harrier</a></li>
+    <li><a href="">Mahindra Marazzo 2018</a></li>
+    <li><a href="">Hyundai Santro</a></li>
+    <li class="last"><a href="">Honda City 2018 Indian</a></li>
+</ul>#}

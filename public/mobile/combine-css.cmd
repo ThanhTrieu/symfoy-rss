@@ -1,0 +1,13 @@
+uglifycss ^
+css/reset.css ^
+css/font-rbt.css ^
+css/fontello.css ^
+css/basis.css ^
+css/general.css ^
+css/style.css ^
+css/gallery/lightslider.css ^
+css/home/slideshow.css ^
+css/gallery/popup_slide.css ^
+css/gallery/lightgallery.min.css ^
+css/custom.css ^
+--output css/iab.min.css

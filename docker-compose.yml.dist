@@ -1,0 +1,45 @@
+version: '3'
+#networks:
+#  dev_network:
+#    external:
+#      name: entertainment_dev_network
+networks:
+  dev_network:
+    driver: bridge
+services:
+### Nginx proxy
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        ports:
+          - "80:80"
+        volumes:
+          - /var/run/docker.sock:/tmp/docker.sock:ro
+        networks:
+          - dev_network
+### CMS web deployment
+    all_php:
+        build: ./docker/php
+        volumes:
+          #- /projects/indianautosblog/desktop_v3/docker/php/conf:/usr/local/etc/php-fpm.d
+          - /projects/indianautosblog/desktop_v3/:/opt/www/
+        expose:
+          - 9000-9002
+        networks:
+          - dev_network
+        #command: ["chown", "www-data:www-data", "/sock"]
+    all_nginx:
+        build: ./docker/nginx
+        volumes:
+          - /projects/indianautosblog/desktop_v3/docker/nginx/conf:/etc/nginx/conf.d
+          - /projects/indianautosblog/desktop_v3/:/opt/www/
+#        volumes_from:
+#          - cms_php
+        environment:
+          - VIRTUAL_HOST=indianautosblogv2.local,m.indianautosblogv2.local
+        expose:
+          - 80
+        links:
+          - all_php
+        networks:
+          - dev_network
+### CMS web deployment

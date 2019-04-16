@@ -1,0 +1,195 @@
+news_staging:
+    path:     /staging/{slug}
+    defaults: {_controller: Mobile\Controller\RedirectController:home}
+    requirements:
+        slug: ".*"
+latest_paging:
+    path:    /page/{currentPage}
+    defaults: {_controller: Mobile\Controller\RedirectController:home}
+    requirements:
+        currentPage: "\\d+"
+old_news_cate:
+    path:     /category/{cateSlug}
+    defaults: {_controller: Mobile\Controller\RedirectController:cate}
+    requirements:
+        cateSlug: "[a-zA-Z0-9\\-]+"
+old_news_cate_paging:
+    path:     /category/{cateSlug}/page/{currentPage}
+    defaults: {_controller: Mobile\Controller\RedirectController:cate}
+    requirements:
+        cateSlug: "[a-zA-Z0-9\\-]+"
+        currentPage: "\\d+"
+old_news_sub_cate:
+    path:     /category/{parentSlug}/{cateSlug}
+    defaults: {_controller: Mobile\Controller\RedirectController:cateParent}
+    requirements:
+        parentSlug: "[a-z0-9\\-]+"
+        cateSlug: "[a-z0-9\\-]+"
+old_news_sub_cate_paging:
+    path:     /category/{parentSlug}/{cateSlug}/page/{currentPage}
+    defaults: {_controller: Mobile\Controller\RedirectController:cateParent}
+    requirements:
+        parentSlug: "[a-z0-9\\-]+"
+        cateSlug: "[a-z0-9\\-]+"
+        currentPage: "\\d+"
+old_news_sub_cate_level2:
+    path:     /category/{rootSlug}/{parentSlug}/{cateSlug}
+    defaults: {_controller: Mobile\Controller\RedirectController:cateParentLevel2}
+    requirements:
+        rootSlug: "[a-z0-9\\-]+"
+        parentSlug: "[a-z0-9\\-]+"
+        cateSlug: "[a-z0-9\\-]+"
+old_news_sub_cate_level2_paging:
+    path:     /category/{rootSlug}/{parentSlug}/{cateSlug}/page/{currentPage}
+    defaults: {_controller: Mobile\Controller\RedirectController:cateParentLevel2}
+    requirements:
+        rootSlug: "[a-z0-9\\-]+"
+        parentSlug: "[a-z0-9\\-]+"
+        cateSlug: "[a-z0-9\\-]+"
+        currentPage: "\\d+"
+old_news_tag:
+    path:     /tag/{tagSlug}
+    defaults: {_controller: Mobile\Controller\RedirectController:tag}
+    requirements:
+        tagSlug: "[a-z0-9\\-_%]+"
+old_news_tag_paging:
+    path:     /tag/{tagSlug}/page/{currentPage}
+    defaults: {_controller: Mobile\Controller\RedirectController:tag}
+    requirements:
+        tagSlug: "[a-z0-9\\-]+"
+        currentPage: "\\d+"
+old_news_author_paging:
+    path:     /author/{username}/page/{currentPage}
+    defaults: {_controller: Mobile\Controller\RedirectController:authorPaging}
+    requirements:
+        username: "[a-z0-9\\-_]+"
+        currentPage: "\\d+"
+old_news_year:
+    path:   /{year}
+    defaults: {_controller: Mobile\Controller\RedirectController:home}
+    requirements:
+        year: "\\d{4}"
+old_news_year_paging:
+    path:   /{year}/page/{currentPage}
+    defaults: {_controller: Mobile\Controller\RedirectController:home}
+    requirements:
+        year: "\\d{4}"
+        currentPage: "\\d+"
+old_news_year_month:
+    path:   /{year}/{month}
+    defaults: {_controller: Mobile\Controller\RedirectController:home}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+old_news_year_month_paging:
+    path:   /{year}/{month}/page/{currentPage}
+    defaults: {_controller: Mobile\Controller\RedirectController:home}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        currentPage: "\\d+"
+old_detail-amp:
+    path:     /{year}/{month}/{slug}-{postId}/amp
+    defaults: {_controller: Mobile\Controller\RedirectController:detailAmp}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        slug: "[a-z0-9\\-_‘’%]+"
+        postId: "\\d+"
+    options:
+        utf8: true
+old_detail-amp-slug:
+    path:     /{year}/{month}/{slug}/amp
+    defaults: {_controller: Mobile\Controller\RedirectController:postSlugAmp}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        slug: "[a-z0-9\\-_‘’%]+"
+    options:
+        utf8: true
+old_detail-comment-paging:
+    path:     /{year}/{month}/{slug}/comment-page-{page}
+    defaults: {_controller: Mobile\Controller\RedirectController:postCommentPaging}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        slug: "[a-zA-Z0-9\\-‘’%]+"
+        page: "\\d+"
+    options:
+        utf8: true
+gallery-detail-comment-paging-postid:
+    path:     /{year}/{month}/{slug}-{postId}/{imageSlug}/comment-page-{page}
+    defaults: {_controller: Mobile\Controller\RedirectController:postCommentPaging}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        slug: "[a-zA-Z0-9\\-‘’%]+"
+        postId: "\\d+"
+        imageSlug: "[a-zA-Z0-9\\-‘’%]+"
+        page: "\\d+"
+    options:
+        utf8: true
+gallery-detail-comment-paging:
+    path:     /{year}/{month}/{slug}/{imageSlug}/comment-page-{page}
+    defaults: {_controller: Mobile\Controller\RedirectController:postCommentPaging}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        slug: "[a-zA-Z0-9\\-_‘’%]+"
+        imageSlug: "[a-zA-Z0-9\\-‘’%]+"
+        page: "\\d+"
+    options:
+        utf8: true
+old_news_detail_gallery:
+    path:     /{year}/{month}/{slug}-{postId}/{imageSlug}
+    defaults: {_controller: Mobile\Controller\RedirectController:postCommentPaging}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        postId: "\\d+"
+        slug: "[a-z0-9\\-_‘’%]+"
+        imageSlug: "[a-z0-9\\-_]+"
+    options:
+        utf8: true
+old_news_detail_gallery_old:
+    path:     /{year}/{month}/{slug}/{imageSlug}
+    defaults: {_controller: Mobile\Controller\RedirectController:imagePostSlug}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        slug: "[a-z0-9\\-_‘’%]+"
+        imageSlug: "[a-z0-9\\-_]+"
+    options:
+        utf8: true
+old_news_detail:
+    path:     /{year}/{month}/{slug}-{postId}
+    defaults: {_controller: Mobile\Controller\RedirectController:detail}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        slug: "[a-z0-9\\-_‘’%]+"
+        postId: "\\d+"
+    options:
+        utf8: true
+old_news_detail_slug:
+    path:     /{year}/{month}/{slug}
+    defaults: {_controller: Mobile\Controller\RedirectController:postSlug}
+    requirements:
+        year: "\\d{4}"
+        month: "\\d{2}"
+        slug: "[a-z0-9\\-_‘’%]+"
+    options:
+        utf8: true
+#sub_page_detail:
+#    path:     /{parentSlug}/{pageSlug}
+#    defaults: {_controller: NewsBundle:Page/Index:postAll}
+#    requirements:
+#        parentSlug: "[a-zA-Z0-9\\-]+"
+#        pageSlug: "[a-z0-9\\-‘’%]+"
+#    options:
+#        utf8: true
+#page_detail:
+#    path:     /{pageSlug}
+#    defaults: {_controller: NewsBundle:Page\Index:postAll}
+#    requirements:
+#        pageSlug: "[a-z0-9\\-_]+"
